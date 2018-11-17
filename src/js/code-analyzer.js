@@ -91,7 +91,7 @@ function modelIfElseStatement(code, model, codeToParse) {
         if (code.alternate.type === 'IfStatement') {
             modelIfElseStatement(code.alternate, model, codeToParse);
         }
-        else{
+        else {
             readCode(code.alternate, model, codeToParse);
         }
     }
@@ -123,7 +123,7 @@ function modelForStatement(code, model, codeToParse) {
             'Line': code.loc.start.line,
             'Type': 'for statement',
             'Name': '',
-            'Condition': codeToParse.substring(code.test.range[0],code.test.range[1]),
+            'Condition': codeToParse.substring(code.test.range[0], code.test.range[1]),
             'Value': ''
         });
 }
@@ -172,6 +172,10 @@ function readCode(code, model, codeToParse) {
     }
 }
 
+function parseScript(codeToParse) {
+    return esprima.parseScript(codeToParse,{loc:true, range:true});
+}
+
 const parseCode = (codeToParse) => {
     var parsedCode = esprima.parseScript(codeToParse, {loc: true, range: true});
     var model = [];
@@ -181,4 +185,19 @@ const parseCode = (codeToParse) => {
 };
 
 
-export {parseCode};
+export {
+    parseScript,
+    parseCode,
+    readCode,
+    modelAssignmentExpression,
+    modelExpressionStatement,
+    modelForStatement,
+    modelFunctionDec,
+    modelIfElseStatement,
+    modelIfStatement,
+    modelParamDec,
+    modelReturnStatement,
+    modelUpdateExpression,
+    modelVariableDec,
+    modelWhileStatement
+};
