@@ -35,7 +35,7 @@ function modelVariableDec(code, model, codeToParse) {
                 'Type': 'variable declaration',
                 'Name': declar.id.name,
                 'Condition': '',
-                'Value': declar.init == null ? 'null (or nothing)' : codeToParse.substring(declar.init.range[0], declar.init.range[1])
+                'Value': declar.init == null ? 'null' : codeToParse.substring(declar.init.range[0], declar.init.range[1])
             });
     });
 }
