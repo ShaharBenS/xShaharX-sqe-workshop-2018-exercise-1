@@ -145,6 +145,53 @@ describe('The javascript parser', () => {
         );
     });
 
+    it('testing readCode3', () => {
+        var model = [];
+        var code = 'for(let i = 0; i < 100; i++){\n' +
+            '\tif(i == 1){\n' +
+            '\t\ti++;\n' +
+            '\t}\n' +
+            '\telse if(i == 2){\n' +
+            '\t\ti++;\n' +
+            '\t}\n' +
+            '\telse if(i == 3){\n' +
+            '\t\ti++;\n' +
+            '\t}\n' +
+            '}';
+        readCode(parseScript(code), model, code);
+        assert.equal(
+            JSON.stringify(model),
+            '[{"Line":1,"Type":"for statement","Name":"","Condition":"i < 100","Value":""}' +
+            ',{"Line":2,"Type":"if statement","Name":"","Condition":"i == 1","Value":""}' +
+            ',{"Line":3,"Type":"update expression","Name":"i","Condition":"","Value":"++"},' +
+            '{"Line":5,"Type":"else if statement","Name":"","Condition":"i == 2","Value":""},' +
+            '{"Line":6,"Type":"update expression","Name":"i","Condition":"","Value":"++"},' +
+            '{"Line":8,"Type":"else if statement","Name":"","Condition":"i == 3","Value":""}' +
+            ',{"Line":9,"Type":"update expression","Name":"i","Condition":"","Value":"++"}]'
+        );
+    });
+
+    it('testing readCode4', () => {
+        var model = [];
+        var code = 'for(let i = 0; i < 100; i++){\n' +
+            '\tif(i == 1){\n' +
+            '\t\ti++;\n' +
+            '\t}\n' +
+            '\telse{\n' +
+            '\t\ti++;\n' +
+            '\t}\n' +
+            '}';
+        readCode(parseScript(code), model, code);
+        assert.equal(
+            JSON.stringify(model),
+            '[{"Line":1,"Type":"for statement","Name":"","Condition":"i < 100","Value":""}' +
+            ',{"Line":2,"Type":"if statement","Name":"","Condition":"i == 1","Value":""}' +
+            ',{"Line":3,"Type":"update expression","Name":"i","Condition":"","Value":"++"},' +
+            '{"Line":6,"Type":"update expression","Name":"i","Condition":"","Value":"++"}]'
+        );
+    });
+
+
     it('testing example', () => {
         var model = [];
         var code = 'function binarySearch(X, V, n){\n' +

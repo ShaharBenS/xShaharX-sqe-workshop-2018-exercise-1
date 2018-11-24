@@ -1,16 +1,14 @@
 import * as esprima from 'esprima';
 
 function modelParamDec(code, model) {
-    if (code.type === 'Identifier') {
-        model.push(
-            {
-                'Line': code.loc.start.line,
-                'Type': 'variable declaration',
-                'Name': code.name,
-                'Condition': '',
-                'Value': ''
-            });
-    }
+    model.push(
+        {
+            'Line': code.loc.start.line,
+            'Type': 'variable declaration',
+            'Name': code.name,
+            'Condition': '',
+            'Value': ''
+        });
 }
 
 function modelFunctionDec(code, model) {
@@ -164,7 +162,7 @@ function readCode(code, model, codeToParse) {
                 readCode(statement, model, codeToParse);
             });
         }
-        else if (body.body !== undefined) {
+        if (body.body !== undefined) {
             Array.prototype.forEach.call(body.body, (statement) => {
                 readCode(statement, model, codeToParse);
             });
