@@ -135,7 +135,7 @@ describe('The javascript parser', () => {
             ',{"Line":1,"Type":"variable declaration","Name":"num","Condition":"","Value":""}' +
             ',{"Line":2,"Type":"variable declaration","Name":"a","Condition":"","Value":"1"},' +
             '{"Line":2,"Type":"variable declaration","Name":"b","Condition":"","Value":"0"},' +
-            '{"Line":2,"Type":"variable declaration","Name":"temp","Condition":"","Value":"null (or nothing)"},' +
+            '{"Line":2,"Type":"variable declaration","Name":"temp","Condition":"","Value":"null"},' +
             '{"Line":4,"Type":"while statement","Name":"","Condition":"num >= 0","Value":""}' +
             ',{"Line":5,"Type":"assignment expression","Name":"temp","Condition":"","Value":"a"}' +
             ',{"Line":6,"Type":"assignment expression","Name":"a","Condition":"","Value":"a + b"}' +
@@ -169,9 +169,9 @@ describe('The javascript parser', () => {
             ',{"Line":1,"Type":"variable declaration","Name":"X","Condition":"","Value":""}' +
             ',{"Line":1,"Type":"variable declaration","Name":"V","Condition":"","Value":""},' +
             '{"Line":1,"Type":"variable declaration","Name":"n","Condition":"","Value":""},' +
-            '{"Line":2,"Type":"variable declaration","Name":"low","Condition":"","Value":"null (or nothing)"},' +
-            '{"Line":2,"Type":"variable declaration","Name":"high","Condition":"","Value":"null (or nothing)"}' +
-            ',{"Line":2,"Type":"variable declaration","Name":"mid","Condition":"","Value":"null (or nothing)"}' +
+            '{"Line":2,"Type":"variable declaration","Name":"low","Condition":"","Value":"null"},' +
+            '{"Line":2,"Type":"variable declaration","Name":"high","Condition":"","Value":"null"}' +
+            ',{"Line":2,"Type":"variable declaration","Name":"mid","Condition":"","Value":"null"}' +
             ',{"Line":3,"Type":"assignment expression","Name":"low","Condition":"","Value":"0"}' +
             ',{"Line":4,"Type":"assignment expression","Name":"high","Condition":"","Value":"n - 1"}' +
             ',{"Line":5,"Type":"while statement","Name":"","Condition":"low <= high","Value":""}' +
